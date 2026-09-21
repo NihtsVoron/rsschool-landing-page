@@ -131,6 +131,7 @@ a{
 
 #sun {
     background-image: url("./assets/img/sun_light.png");
+    transition: background-image 0.3s ease;
     height: 36px;
     width: 36px;
 }
@@ -141,6 +142,7 @@ a{
 
 #moon {
     background-image: url("./assets/img/Dark_moon.png");
+    transition: background-image 0.3s ease;
     height: 36px;
     width: 36px;
 }
@@ -264,6 +266,7 @@ main {
     height: 60px;
     background-position: center;
     cursor: pointer;
+    transition: background-image 0.3s ease;
 }
 
 .button-slider:hover {
@@ -290,32 +293,32 @@ main {
     width: 480px;
 }
 
-.slider-image{
+.slider-image {
     object-fit: scale-down;
 }
 
-.slider-description{
+.slider-description {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
 }
 
-.slider-controls{
+.slider-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 12px;
 }
 
-.slider-control{
+.slider-control {
     width: 40px;
     height: 4px;
     background-color: var(--color-border-primary);
     border-radius:2px;
 }
 
-.slider-control.active{
+.slider-control.active {
     background-color: var(--color-border-inverse);
 }
 
@@ -345,7 +348,7 @@ main {
     position: relative;
 }
 
-.about-image{
+.about-image {
     border-radius: 20px;
     background-repeat: no-repeat;
     background-position: center;
@@ -358,15 +361,15 @@ main {
     background-size: 110%;
 }
 
-.about-shrink{
+.about-shrink {
     height: 430px;
 }
 
-.about-grow{
+.about-grow {
     height: 590px;
 }
 
-.mobile-app{
+.mobile-app {
     margin: 0px 40px;
     display: flex;
     justify-content: center;
@@ -375,7 +378,7 @@ main {
     gap: 100px;
 }
 
-.offer{
+.offer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -383,7 +386,7 @@ main {
     gap: 40px;
 }
 
-.app-buttons{
+.app-buttons {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -391,26 +394,27 @@ main {
     width: 100%;
 }
 
-.app-button{
+.app-button {
     width: 200px;
     height: 64px;
     background-position: center;
     cursor: pointer;
+    transition: background-image 0.3s ease;
 }
 
-.button-app-store{
+.button-app-store {
     background-image: url("./assets/img/button-app-store.png");
 }
 
-.button-google-play{
+.button-google-play {
     background-image: url("./assets/img/button-google-play.png");
 }
 
-.button-app-store:hover{
+.button-app-store:hover {
     background-image: url("./assets/img/button-app-store-hover.png");
 }
 
-.button-google-play:hover{
+.button-google-play:hover {
     background-image: url("./assets/img/button-google-play-hover.png");
 }
 
@@ -440,7 +444,7 @@ footer {
     color: var(--color-text-accent);
 }
 
-.contact-block{
+.contact-block {
     width: 530px;
     display: flex;
     justify-content: flex-start;
@@ -448,7 +452,7 @@ footer {
     gap: 40px;
 }
 
-.socials{
+.socials {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -456,43 +460,49 @@ footer {
     gap: 12px;
 }
 
-.social{
+.social {
     width: 60px;
     height: 60px;
     cursor: pointer;
 }
 
-.twitter{
+.twitter {
     background-image: url("./assets/img/button-icon-light-twitter.png");
+    transition: background-image 0.3s ease,
+        background-color 0.3s ease;
+    border-radius: 100%;
 }
 
-.twitter:hover{
+.twitter:hover {
     background-image: url("./assets/img/button-icon-light-twitter-hover.png");
     background-color: var(--color-background-page);
+}
+
+.instagram {
+    background-image: url("./assets/img/button-icon-light-instagram.png");
+    transition: background-image 0.3s ease,
+        background-color 0.3s ease;
     border-radius: 100%;
 }
 
-.instagram{
-    background-image: url("./assets/img/button-icon-light-instagram.png");
-}
-
-.instagram:hover{
+.instagram:hover {
     background-image: url("./assets/img/button-icon-light-instagram-hover.png");
     background-color: var(--color-background-page);
+}
+
+.facebook {
+    background-image: url("./assets/img/button-icon-light-facebook.png");
+    transition: background-image 0.3s ease,
+        background-color 0.3s ease;
     border-radius: 100%;
 }
 
-.facebook{
-    background-image: url("./assets/img/button-icon-light-facebook.png");
-}
-
-.facebook:hover{
+.facebook:hover {
     background-image: url("./assets/img/button-icon-light-facebook-hover.png");
     background-color: var(--color-background-page);
-    border-radius: 100%;
 }
 
-.contacts{
+.contacts {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -507,20 +517,21 @@ footer {
     color: var(--color-text-inverse);
 }
 
-.contact{
+.contact {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 4px;
     cursor: pointer;
     width: fit-content;
+    transition: border-bottom 0.3s ease;
 }
 
-.contact:hover{
+.contact:hover {
     border-bottom: 2px solid var(--color-text-inverse);
 }
 
-.menu{
+.menu {
     margin: 0px 40px;
     display: flex;
     justify-content: center;
@@ -529,7 +540,7 @@ footer {
     gap: 40px;
 }
 
-.menu-header{
+.menu-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -539,7 +550,7 @@ footer {
     text-align: center;
 }
 
-.menu-tabs{
+.menu-tabs {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -547,7 +558,7 @@ footer {
     gap: 16px;
 }
 
-.menu-tabs-button{
+.menu-tabs-button {
     text-align: center;
     cursor: pointer;
     border-radius: 24px;
@@ -559,9 +570,12 @@ footer {
     align-items: center;
     gap: 8px;
     color: var(--color-text-primary);
+    transition: background-color 0.3s ease,
+        border 0.3s ease,
+        color 0.3s ease;
 }
 
-.menu-tabs-button > img{
+.menu-tabs-button > img {
     height: 30px;
     width: 30px;
     border-radius: 100%;
@@ -569,19 +583,20 @@ footer {
     background-color: var(--color-border-primary);
     background-position: center;
     background-size: contain;
+    transition: background-color 0.3s ease;
 }
 
-.menu-tabs-button:hover, .menu-tabs-button.active{
+.menu-tabs-button:hover, .menu-tabs-button.active {
     background-color: var(--color-background-container);
     border: 1px solid var(--color-background-container);;
     color: var(--color-text-inverse);
 }
 
-.menu-tabs-button:hover > img, .menu-tabs-button.active > img{
+.menu-tabs-button:hover > img, .menu-tabs-button.active > img {
     background-color: var(--color-background-page);
 }
 
-.menu-list{
+.menu-list {
     display: none;
     flex-direction: row;
     flex-wrap: wrap;
@@ -590,11 +605,11 @@ footer {
     align-items: center;
 }
 
-.menu-list.active{
+.menu-list.active {
     display: flex;
 }
 
-.menu-list-item{
+.menu-list-item {
     width: 308px;
     height: 504px;
     border: 1px solid var(--color-border-primary);
@@ -610,7 +625,7 @@ footer {
     flex-direction: column;
 }
 
-.menu-list-item-image{
+.menu-list-item-image {
     height: 310px;
     border-radius: 40px;
     background-repeat: no-repeat;
@@ -624,7 +639,7 @@ footer {
     background-size: 110%;
 }
 
-.menu-list-item-description{
+.menu-list-item-description {
     padding: 20px;
     display: flex;
     flex-direction: column;
