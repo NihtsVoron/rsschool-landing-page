@@ -254,8 +254,12 @@ main {
     gap: 40px;
 }
 
-.favorite-coffee> h2 , .about > h2, .offer > h2 , .menu-header > h1 {
+.favorite-coffee > h2 , .about > h2, .offer > h2 , .menu-header > h1 {
     color: var(--color-text-primary);
+}
+
+.favorite-coffee > h2 {
+    text-align: center;
 }
 
 .favorite-coffee> h2 > span, .about> h2 > span, .offer > h2 > span, .menu-header > h1 > span {
@@ -651,5 +655,28 @@ footer {
 
 @media (max-width: 1439px) {
 
+    .about-images{
+        flex-direction: row;
+        height: auto;
+        justify-content: center;
+    }
 
+    .about-shrink {
+        display: none
+    }
+
+    .mobile-app{
+        flex-direction: column;
+    }
+
+    .contact-us{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1023px) {
+
+    .menu-header{
+        width: auto;
+    }
 }
