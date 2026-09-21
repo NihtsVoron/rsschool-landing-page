@@ -130,23 +130,23 @@ a{
 }
 
 #sun {
-    background-image: url("/assets/img/sun_light.png");
+    background-image: url("./assets/img/sun_light.png");
     height: 36px;
     width: 36px;
 }
 
 #sun:hover {
-    background-image: url("/assets/img/sun_light.png");
+    background-image: url("./assets/img/sun_light.png");
 }
 
 #moon {
-    background-image: url("/assets/img/Dark_moon.png");
+    background-image: url("./assets/img/Dark_moon.png");
     height: 36px;
     width: 36px;
 }
 
 #moon:hover {
-    background-image: url("/assets/img/Dark_moon_hover.png");
+    background-image: url("./assets/img/Dark_moon_hover.png");
 }
 
 .coffee-menu-button {
@@ -172,7 +172,7 @@ main {
     align-items: flex-start;
     flex-direction: row;
     text-align: left;
-    background-image: url("/assets/img/img-hero.png");
+    background-image: url("./assets/img/img-hero.png");
     background-position: center;
     border-radius: 40px;
     padding: 100px;
@@ -259,7 +259,7 @@ main {
 }
 
 .button-slider {
-    background-image: url("/assets/img/slider-button.png");
+    background-image: url("./assets/img/slider-button.png");
     width: 60px;
     height: 60px;
     background-position: center;
@@ -267,7 +267,7 @@ main {
 }
 
 .button-slider:hover {
-    background-image: url("/assets/img/slider-button-hover.png");
+    background-image: url("./assets/img/slider-button-hover.png");
 }
 
 .button-slider.left {
@@ -399,19 +399,19 @@ main {
 }
 
 .button-app-store{
-    background-image: url("/assets/img/button-app-store.png");
+    background-image: url("./assets/img/button-app-store.png");
 }
 
 .button-google-play{
-    background-image: url("/assets/img/button-google-play.png");
+    background-image: url("./assets/img/button-google-play.png");
 }
 
 .button-app-store:hover{
-    background-image: url("/assets/img/button-app-store-hover.png");
+    background-image: url("./assets/img/button-app-store-hover.png");
 }
 
 .button-google-play:hover{
-    background-image: url("/assets/img/button-google-play-hover.png");
+    background-image: url("./assets/img/button-google-play-hover.png");
 }
 
 footer {
@@ -463,31 +463,31 @@ footer {
 }
 
 .twitter{
-    background-image: url("/assets/img/button-icon-light-twitter.png");
+    background-image: url("./assets/img/button-icon-light-twitter.png");
 }
 
 .twitter:hover{
-    background-image: url("/assets/img/button-icon-light-twitter-hover.png");
+    background-image: url("./assets/img/button-icon-light-twitter-hover.png");
     background-color: var(--color-background-page);
     border-radius: 100%;
 }
 
 .instagram{
-    background-image: url("/assets/img/button-icon-light-instagram.png");
+    background-image: url("./assets/img/button-icon-light-instagram.png");
 }
 
 .instagram:hover{
-    background-image: url("/assets/img/button-icon-light-instagram-hover.png");
+    background-image: url("./assets/img/button-icon-light-instagram-hover.png");
     background-color: var(--color-background-page);
     border-radius: 100%;
 }
 
 .facebook{
-    background-image: url("/assets/img/button-icon-light-facebook.png");
+    background-image: url("./assets/img/button-icon-light-facebook.png");
 }
 
 .facebook:hover{
-    background-image: url("/assets/img/button-icon-light-facebook-hover.png");
+    background-image: url("./assets/img/button-icon-light-facebook-hover.png");
     background-color: var(--color-background-page);
     border-radius: 100%;
 }
