@@ -99,6 +99,14 @@ a{
     padding: 20px 40px;
 }
 
+.logo-img{
+    display: none;
+}
+
+.logo-img.active{
+    display: block;
+}
+
 .nav-links-container {
     display: flex;
     justify-content: center;
@@ -187,7 +195,6 @@ main {
     align-items: flex-start;
     flex-direction: row;
     text-align: left;
-    background-image: url("./assets/img/img-hero.png");
     background-position: center;
     border-radius: 40px;
     padding: 100px;
@@ -288,7 +295,7 @@ main {
 .button-slider:hover {
     color: var(--color-text-inverse);
     background-color: var(--color-background-container);
-    border-color: none;
+    border-color: transparent;
 }
 
 .button-slider.left {
@@ -429,7 +436,7 @@ main {
 .app-button:hover {
     color: var(--color-text-inverse);
     background-color: var(--color-background-container);
-    border-color: none;
+    border-color: transparent;
 }
 
 footer {
@@ -478,42 +485,21 @@ footer {
     width: 60px;
     height: 60px;
     cursor: pointer;
-}
-
-.twitter {
-    background-image: url("./assets/img/button-icon-light-twitter.png");
-    transition: background-image 0.3s ease,
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    transition: color 0.3s ease,
         background-color 0.3s ease;
     border-radius: 100%;
+    color: var(--color-text-inverse);
+    border: 1px solid var(--color-border-primary);
 }
 
-.twitter:hover {
-    background-image: url("./assets/img/button-icon-light-twitter-hover.png");
+.social:hover {
+    color: var(--color-text-primary);
     background-color: var(--color-background-page);
-}
-
-.instagram {
-    background-image: url("./assets/img/button-icon-light-instagram.png");
-    transition: background-image 0.3s ease,
-        background-color 0.3s ease;
-    border-radius: 100%;
-}
-
-.instagram:hover {
-    background-image: url("./assets/img/button-icon-light-instagram-hover.png");
-    background-color: var(--color-background-page);
-}
-
-.facebook {
-    background-image: url("./assets/img/button-icon-light-facebook.png");
-    transition: background-image 0.3s ease,
-        background-color 0.3s ease;
-    border-radius: 100%;
-}
-
-.facebook:hover {
-    background-image: url("./assets/img/button-icon-light-facebook-hover.png");
-    background-color: var(--color-background-page);
+    border-color: transparent;
 }
 
 .contacts {
