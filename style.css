@@ -232,11 +232,11 @@ main {
     gap: 40px;
 }
 
-.favorite-coffee> h2 , .about > h2, .offer > h2 , .menu-header > h2 {
+.favorite-coffee> h2 , .about > h2, .offer > h2 , .menu-header > h1 {
     color: var(--color-text-primary);
 }
 
-.favorite-coffee> h2 > span, .about> h2 > span, .offer > h2 > span, .menu-header > h2 > span {
+.favorite-coffee> h2 > span, .about> h2 > span, .offer > h2 > span, .menu-header > h1 > span {
     color: var(--color-text-accent);
 }
 
