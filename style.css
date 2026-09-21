@@ -623,6 +623,7 @@ footer {
     text-align: left;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .menu-list-item-image {
@@ -635,7 +636,7 @@ footer {
     cursor: pointer;
 }
 
-.menu-list-item-image:hover {
+.menu-list-item-image:hover, .menu-list-item:hover .menu-list-item-image {
     background-size: 110%;
 }
 
