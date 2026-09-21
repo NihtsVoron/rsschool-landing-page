@@ -8,14 +8,19 @@
     --color-border-primary: #C1B6AD;
     --color-border-inverse: #665F55;
 
-    --color-dark-text-primary: #E1D4C9;
-    --color-dark-text-inverse: #E1D4C9;
-    --color-dark-text-accent: #B0907A;
-    --color-dark-background-page: #292826;
-    --color-dark-background-container: #403F3D;
-    --color-dark-background-overlay: #292826;
-    --color-dark-border-primary: #665F55;
-    --color-dark-border-inverse: #C1B6AD;
+    --color-text-accent-light: #B0907A;
+    --color-border-primary-dark: #665F55;
+}
+
+html[data-theme='dark'] {
+    --color-text-primary: #E1D4C9;
+    --color-text-inverse: #E1D4C9;
+    --color-text-accent: #B0907A;
+    --color-background-page: #292826;
+    --color-background-container: #403F3D;
+    --color-background-overlay: #292826;
+    --color-border-primary: #665F55;
+    --color-border-inverse: #C1B6AD;
 }
 
 * {
@@ -129,26 +134,30 @@ a{
     border-radius: 50%;
 }
 
-#sun {
-    background-image: url("./assets/img/sun_light.png");
-    transition: background-image 0.3s ease;
-    height: 36px;
-    width: 36px;
+.sun {
+    color: var(--color-text-inverse);
+    transition: color 0.3s ease,
+        background-color 0.3s ease;
+    padding: 8px;
+    border-radius: 100%;
 }
 
-#sun:hover {
-    background-image: url("./assets/img/sun_light.png");
+.sun:hover, .sun.active {
+    color: var(--color-text-inverse);
+    background-color: var(--color-text-accent);
 }
 
-#moon {
-    background-image: url("./assets/img/Dark_moon.png");
-    transition: background-image 0.3s ease;
-    height: 36px;
-    width: 36px;
+.moon {
+    color: var(--color-text-primary);
+    transition: color 0.3s ease,
+        background-color 0.3s ease;
+    padding: 9px;
+    border-radius: 100%;
 }
 
-#moon:hover {
-    background-image: url("./assets/img/Dark_moon_hover.png");
+.moon:hover, .moon.active {
+    color: var(--color-text-inverse);
+    background-color: var(--color-border-primary-dark);
 }
 
 .coffee-menu-button {
@@ -156,6 +165,10 @@ a{
     align-items: center;
     gap: 8px;
     color: var(--color-text-primary);
+}
+
+.coffee-menu-icon {
+  color: var(--color-text-primary);
 }
 
 .menu-item:hover {
@@ -217,11 +230,11 @@ main {
     cursor: pointer;
 }
 
-.button-primary img {
+.button-primary svg {
     display: none;
 }
 
-.button-primary:hover img {
+.button-primary:hover svg {
     display: block;
 }
 
@@ -261,16 +274,21 @@ main {
 }
 
 .button-slider {
-    background-image: url("./assets/img/slider-button.png");
-    width: 60px;
-    height: 60px;
+    color: var(--color-text-primary);
+    padding: 18px;
     background-position: center;
     cursor: pointer;
-    transition: background-image 0.3s ease;
+    transition: color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+    border-radius: 100%;
+    border: 1px solid var(--color-border-inverse);
 }
 
 .button-slider:hover {
-    background-image: url("./assets/img/slider-button-hover.png");
+    color: var(--color-text-inverse);
+    background-color: var(--color-background-container);
+    border-color: none;
 }
 
 .button-slider.left {
@@ -315,7 +333,7 @@ main {
     width: 40px;
     height: 4px;
     background-color: var(--color-border-primary);
-    border-radius:2px;
+    border-radius: 2px;
 }
 
 .slider-control.active {
@@ -384,6 +402,7 @@ main {
     align-items: center;
     flex-direction: column;
     gap: 40px;
+    color: var(--color-text-primary);
 }
 
 .app-buttons {
@@ -395,27 +414,22 @@ main {
 }
 
 .app-button {
-    width: 200px;
-    height: 64px;
-    background-position: center;
+    width: 160px;
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 40px;
+    border: 1px solid var(--color-border-inverse);
     cursor: pointer;
-    transition: background-image 0.3s ease;
+    transition: color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.button-app-store {
-    background-image: url("./assets/img/button-app-store.png");
-}
-
-.button-google-play {
-    background-image: url("./assets/img/button-google-play.png");
-}
-
-.button-app-store:hover {
-    background-image: url("./assets/img/button-app-store-hover.png");
-}
-
-.button-google-play:hover {
-    background-image: url("./assets/img/button-google-play-hover.png");
+.app-button:hover {
+    color: var(--color-text-inverse);
+    background-color: var(--color-background-container);
+    border-color: none;
 }
 
 footer {
