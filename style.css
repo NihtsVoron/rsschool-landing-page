@@ -708,6 +708,10 @@ footer {
     .menu-header{
         width: auto;
     }
+
+    .nav-links-container{
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -773,9 +777,5 @@ footer {
 
     .contact-block {
         width: 100%;
-    }
-
-    .nav-links-container{
-        display: none;
     }
 }
