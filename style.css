@@ -723,7 +723,6 @@ footer {
 }
 
 .burger-menu{
-    display: none;
     flex-direction: column;
     width: 100%;
     z-index: 10;
@@ -734,6 +733,7 @@ footer {
     align-items: center;
     position: fixed;
     justify-content: flex-start;
+    transition: all .5s;
 }
 
 @media (max-width: 1439px) {
@@ -771,8 +771,14 @@ footer {
         display: flex;
     }
 
-    .burger-menu.active{
+    .burger-menu{
         display: flex;
+        opacity: 0;
+        top: -120%;
+    }
+
+    .burger-menu.active{
+        opacity: 1;
     }
 
     .coffee-menu-button{

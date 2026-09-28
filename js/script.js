@@ -204,11 +204,18 @@ if (burger!=null)
   );
 
   burger.addEventListener('click', (event) => {
-    event.target.classList.toggle('active');
+    burger.classList.toggle('active');
     navLinksContainer.classList.toggle('active');
     burgerMenu.classList.toggle('active');
 
-    burgerMenu.style.setProperty('top', headerMenu.offsetHeight + 'px');
+    let IsActive = burgerMenu.classList.contains('active');
+    if (IsActive)
+    {
+      burgerMenu.style.setProperty('top', headerMenu.offsetHeight + 'px');
+    }
+    else{
+      burgerMenu.style.setProperty('top', '-120%');
+    }
     burgerMenu.style.setProperty('height', window.innerHeight - headerMenu.offsetHeight + 'px');
     document.body.classList.toggle('no-scroll');
   });
