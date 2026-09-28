@@ -204,31 +204,35 @@ if (burger!=null)
   );
 
   burger.addEventListener('click', (event) => {
-    burger.classList.toggle('active');
-    navLinksContainer.classList.toggle('active');
-    burgerMenu.classList.toggle('active');
-
-    let IsActive = burgerMenu.classList.contains('active');
-    if (IsActive)
-    {
+    ToggleBurger();
+    if (burgerMenu.classList.contains('active'))
       burgerMenu.style.setProperty('top', headerMenu.offsetHeight + 'px');
-    }
-    else{
+    else
       burgerMenu.style.setProperty('top', '-120%');
-    }
+
     burgerMenu.style.setProperty('height', window.innerHeight - headerMenu.offsetHeight + 'px');
-    document.body.classList.toggle('no-scroll');
   });
 }
 
 navLinksContainer.addEventListener('click', (event) => {
-  let IsActive = burgerMenu.classList.contains('active');
-  if (IsActive)
-  {
-    burger.classList.toggle('active');
-    burgerMenu.classList.toggle('active');
-    navLinksContainer.classList.toggle('active');
-
-    document.body.classList.toggle('no-scroll');
-  }
+  if (burgerMenu.classList.contains('active'))
+    ToggleBurger();
 });
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && burgerMenu.classList.contains('active'))
+    ToggleBurger();
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768 && burgerMenu.classList.contains('active'))
+      ToggleBurger();
+});
+
+function ToggleBurger()
+{
+  burger.classList.toggle('active');
+  burgerMenu.classList.toggle('active');
+  navLinksContainer.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
+}
