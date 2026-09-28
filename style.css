@@ -747,7 +747,7 @@ footer {
         display: none;
     }
 
-    .slide.active {
+    .row-slider {
         width: auto;
     }
 
