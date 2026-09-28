@@ -19,9 +19,11 @@ const sliderControls = document.querySelectorAll('.slider-control');
 
 const burger = document.querySelector('.burger');
 const navLinksContainer = document.querySelector('.nav-links-container');
+const navLinksContainerCopy = navLinksContainer.cloneNode(true);
 const headerMenu = document.querySelector('.header-menu');
 const burgerMenu = document.querySelector('.burger-menu');
 const coffeeMenuButton = document.querySelector('.coffee-menu-button');
+const coffeeMenuButtonCopy = coffeeMenuButton.cloneNode(true);
 
 let allProducts = [];
 
@@ -199,8 +201,8 @@ if (coffeeList!=null)
 if (burger!=null)
 {
   burgerMenu.append(
-    navLinksContainer.cloneNode(true),
-    coffeeMenuButton.cloneNode(true)
+    navLinksContainerCopy,
+    coffeeMenuButtonCopy
   );
 
   burger.addEventListener('click', (event) => {
@@ -214,7 +216,12 @@ if (burger!=null)
   });
 }
 
-navLinksContainer.addEventListener('click', (event) => {
+navLinksContainerCopy.addEventListener('click', (event) => {
+  if (burgerMenu.classList.contains('active'))
+    ToggleBurger();
+});
+
+coffeeMenuButtonCopy.addEventListener('click', (event) => {
   if (burgerMenu.classList.contains('active'))
     ToggleBurger();
 });
