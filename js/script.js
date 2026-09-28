@@ -17,7 +17,10 @@ const rowSlider = document.querySelector('.row-slider');
 const slides = document.querySelectorAll('.slide');
 const sliderControls = document.querySelectorAll('.slider-control');
 
+let allProducts = [];
+
 const savedTheme = localStorage.getItem('theme') || 'light';
+
 if (savedTheme =='dark')
 {
     sunButton.classList.toggle('active');
@@ -142,3 +145,45 @@ if (sliderRightButton!=null)
         }
       });
     });
+
+async function loadProducts() {
+  const response = await fetch('../assets/products.json');
+  if (!response.ok) {
+    throw new Error(`Ошибка загрузки: ${response.status}`);
+  }
+  return response.json();
+}
+
+loadProducts().then(products => {
+  teaList.innerHTML = '';
+  coffeeList.innerHTML = '';
+  dessertList.innerHTML = '';
+  allProducts = products;
+  products.forEach(item =>
+  {
+    const newItem = document.createElement('div');
+    newItem.className = 'menu-list-item';
+    newItem.innerHTML = `
+      <div class="menu-list-item" id=productId-${allProducts.indexOf(item)}>
+        <div class="menu-list-item-image" style="background-image: url(${item.image});"></div>
+        <div class="menu-list-item-description">
+          <h2 class="heading-3">${item.name}</h2>
+          <p class="medium-text">${item.description}</p>
+          <h2 class="heading-3">${item.price}</h2>
+        </div>
+      </div>`;
+
+    switch (item.category)
+    {
+      case 'coffee':
+        coffeeList.append(newItem);
+        break;
+      case 'tea':
+        teaList.append(newItem);
+        break;
+      case 'dessert':
+        dessertList.append(newItem);
+        break;
+    }
+  });
+});
