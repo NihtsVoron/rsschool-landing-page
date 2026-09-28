@@ -17,6 +17,12 @@ const rowSlider = document.querySelector('.row-slider');
 const slides = document.querySelectorAll('.slide');
 const sliderControls = document.querySelectorAll('.slider-control');
 
+const burger = document.querySelector('.burger');
+const navLinksContainer = document.querySelector('.nav-links-container');
+const headerMenu = document.querySelector('.header-menu');
+const burgerMenu = document.querySelector('.burger-menu');
+const coffeeMenuButton = document.querySelector('.coffee-menu-button');
+
 let allProducts = [];
 
 const savedTheme = localStorage.getItem('theme') || 'light';
@@ -154,36 +160,72 @@ async function loadProducts() {
   return response.json();
 }
 
-loadProducts().then(products => {
-  teaList.innerHTML = '';
-  coffeeList.innerHTML = '';
-  dessertList.innerHTML = '';
-  allProducts = products;
-  products.forEach(item =>
-  {
-    const newItem = document.createElement('div');
-    newItem.className = 'menu-list-item';
-    newItem.innerHTML = `
-      <div class="menu-list-item" id=productId-${allProducts.indexOf(item)}>
-        <div class="menu-list-item-image" style="background-image: url(${item.image});"></div>
-        <div class="menu-list-item-description">
-          <h2 class="heading-3">${item.name}</h2>
-          <p class="medium-text">${item.description}</p>
-          <h2 class="heading-3">${item.price}</h2>
-        </div>
-      </div>`;
-
-    switch (item.category)
+if (coffeeList!=null)
+  loadProducts().then(products => {
+    teaList.innerHTML = '';
+    coffeeList.innerHTML = '';
+    dessertList.innerHTML = '';
+    allProducts = products;
+    products.forEach(item =>
     {
-      case 'coffee':
-        coffeeList.append(newItem);
-        break;
-      case 'tea':
-        teaList.append(newItem);
-        break;
-      case 'dessert':
-        dessertList.append(newItem);
-        break;
-    }
+      const newItem = document.createElement('div');
+      newItem.className = 'menu-list-item';
+      newItem.innerHTML = `
+        <div class="menu-list-item" id=productId-${allProducts.indexOf(item)}>
+          <div class="menu-list-item-image" style="background-image: url(${item.image});"></div>
+          <div class="menu-list-item-description">
+            <h2 class="heading-3">${item.name}</h2>
+            <p class="medium-text">${item.description}</p>
+            <h2 class="heading-3">${item.price}</h2>
+          </div>
+        </div>`;
+
+      switch (item.category)
+      {
+        case 'coffee':
+          coffeeList.append(newItem);
+          break;
+        case 'tea':
+          teaList.append(newItem);
+          break;
+        case 'dessert':
+          dessertList.append(newItem);
+          break;
+      }
+    });
   });
+
+
+if (burger!=null)
+      burger.addEventListener('click', (event) => {
+        event.target.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+
+        let IsActive = event.target.classList.contains('active');
+        if (IsActive)
+        {
+          burgerMenu.append(navLinksContainer);
+          burgerMenu.append(coffeeMenuButton);
+        }
+        else
+        {
+          burgerMenu.innerHTML ='';
+        }
+        burgerMenu.style.setProperty('top', headerMenu.offsetHeight + 'px');
+        burgerMenu.style.setProperty('height', window.innerHeight - headerMenu.offsetHeight + 'px');
+        document.body.classList.toggle('no-scroll');
+      });
+
+navLinksContainer.addEventListener('click', (event) => {
+  let IsActive = burgerMenu.classList.contains('active');
+  if (IsActive)
+  {
+    burger.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+    navLinksContainer.classList.toggle('active');
+
+    burgerMenu.innerHTML ='';
+    document.body.classList.toggle('no-scroll');
+  }
 });
