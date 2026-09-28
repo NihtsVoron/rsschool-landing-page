@@ -708,7 +708,7 @@ footer {
   height: 2px;
   background:  var(--color-text-primary);
   border-radius: 2px;
-  transition: transform .3s, opacity .3s, top .3s;
+  transition: all .5s;
 }
 
 .burger.active p:nth-child(1) {
@@ -733,6 +733,7 @@ footer {
     position: fixed;
     justify-content: flex-start;
     transition: all .5s;
+    display:none;
 }
 
 @media (max-width: 1439px) {
