@@ -197,25 +197,22 @@ if (coffeeList!=null)
 
 
 if (burger!=null)
-      burger.addEventListener('click', (event) => {
-        event.target.classList.toggle('active');
-        navLinksContainer.classList.toggle('active');
-        burgerMenu.classList.toggle('active');
+{
+  burgerMenu.append(
+    navLinksContainer.cloneNode(true),
+    coffeeMenuButton.cloneNode(true)
+  );
 
-        let IsActive = event.target.classList.contains('active');
-        if (IsActive)
-        {
-          burgerMenu.append(navLinksContainer);
-          burgerMenu.append(coffeeMenuButton);
-        }
-        else
-        {
-          burgerMenu.innerHTML ='';
-        }
-        burgerMenu.style.setProperty('top', headerMenu.offsetHeight + 'px');
-        burgerMenu.style.setProperty('height', window.innerHeight - headerMenu.offsetHeight + 'px');
-        document.body.classList.toggle('no-scroll');
-      });
+  burger.addEventListener('click', (event) => {
+    event.target.classList.toggle('active');
+    navLinksContainer.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+
+    burgerMenu.style.setProperty('top', headerMenu.offsetHeight + 'px');
+    burgerMenu.style.setProperty('height', window.innerHeight - headerMenu.offsetHeight + 'px');
+    document.body.classList.toggle('no-scroll');
+  });
+}
 
 navLinksContainer.addEventListener('click', (event) => {
   let IsActive = burgerMenu.classList.contains('active');
@@ -225,7 +222,6 @@ navLinksContainer.addEventListener('click', (event) => {
     burgerMenu.classList.toggle('active');
     navLinksContainer.classList.toggle('active');
 
-    burgerMenu.innerHTML ='';
     document.body.classList.toggle('no-scroll');
   }
 });
