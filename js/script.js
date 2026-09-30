@@ -25,6 +25,8 @@ const burgerMenu = document.querySelector('.burger-menu');
 const coffeeMenuButton = document.querySelector('.coffee-menu-button');
 const coffeeMenuButtonCopy = coffeeMenuButton.cloneNode(true);
 
+const loadMoreButton = document.querySelector('.load-more-button');
+
 let allProducts = [];
 
 const savedTheme = localStorage.getItem('theme') || 'light';
@@ -63,6 +65,8 @@ if (coffeeButton !=null )
     coffeeButton.classList.add('active');
     teaButton.classList.remove('active');
     dessertButton.classList.remove('active');
+
+    VisibleLoadMoreButton();
   });
 
 if (teaButton !=null )
@@ -75,10 +79,12 @@ if (teaButton !=null )
     teaButton.classList.add('active');
     coffeeButton.classList.remove('active');
     dessertButton.classList.remove('active');
+
+    VisibleLoadMoreButton();
   });
 
   if (dessertButton!=null)
-  dessertButton.addEventListener('click', () => {
+    dessertButton.addEventListener('click', () => {
 
     dessertList.classList.add('active');
     coffeeList.classList.remove('active');
@@ -87,6 +93,8 @@ if (teaButton !=null )
     dessertButton.classList.add('active');
     coffeeButton.classList.remove('active');
     teaButton.classList.remove('active');
+
+    VisibleLoadMoreButton();
   });
 
 if (sliderLeftButton!=null)
@@ -242,4 +250,19 @@ function ToggleBurger()
   burgerMenu.classList.toggle('active');
   navLinksContainer.classList.toggle('active');
   document.body.classList.toggle('no-scroll');
+}
+
+if (loadMoreButton !=null )
+  loadMoreButton.addEventListener('click', () => {
+      let menuListItems = document.querySelectorAll('.menu-list.active .menu-list-item:nth-child(n+5)');
+
+      menuListItems.forEach(menuListItem => menuListItem.style.setProperty('display', 'flex'));
+
+      loadMoreButton.style.setProperty('display', 'none');
+  });
+
+function VisibleLoadMoreButton()
+{
+  if (window.innerWidth <= 768 && document.querySelectorAll('.menu-list.active .menu-list-item:nth-child(n+5)').length>0)
+    loadMoreButton.style.setProperty('display', 'block');
 }
