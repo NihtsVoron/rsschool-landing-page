@@ -291,14 +291,26 @@ function openModal(product) {
   let sizeList=modal.querySelector('.sizes');
   sizeList.innerHTML = '';
   Object.entries(product.sizes).forEach(([key, size]) => {
-    let sizeItem = document.createElement('div');
+    const sizeItem = document.createElement('div');
       sizeItem.className = 'sizes-button link-button-text';
+      sizeItem.dataset.addPrice = size['add-price'];
       sizeItem.innerHTML = `
           <span class="sizes-size">${key}</span>
           <span>${size.size}</span>
         `;
 
       sizeList.append(sizeItem);
+
+      sizeItem.addEventListener('click', () => {
+        modal.querySelectorAll('.sizes-button').forEach(b => b.classList.remove('active'));
+        sizeItem.classList.add('active');
+        let total = Number(product.price) + Number(size['add-price']);
+        const activeAdditives = modal.querySelectorAll('.additivity-button.checked');
+        activeAdditives.forEach(checked => {
+          total = total + Number(checked.dataset.addPrice);
+        });
+        modal.querySelector('.menu-list-item-modal-total-price span:last-child').textContent = `$${total.toFixed(2)}`;
+      });
   });
 
   sizeList.querySelector('.sizes-button:first-child').classList.add('active');
@@ -307,14 +319,29 @@ function openModal(product) {
   additiyList.innerHTML = '';
   for (let i = 0; i < product.additives.length; i++) {
     const item = product.additives[i];
-    let sizeItem = document.createElement('div');
-      sizeItem.className = 'sizes-button link-button-text';
-      sizeItem.innerHTML = `
+    let addityItem = document.createElement('div');
+      addityItem.className = 'additivity-button link-button-text';
+      addityItem.dataset.addPrice = item['add-price'];
+      addityItem.innerHTML = `
           <span class="additive-number">${i+1}</span>
           <span>${item.name}</span>
         `;
 
-      additiyList.append(sizeItem);
+      additiyList.append(addityItem);
+
+      addityItem.addEventListener('click', () => {
+        addityItem.classList.toggle('checked');
+        let total = Number(product.price);
+
+        const activeSize = modal.querySelector('.sizes-button.active');
+        total = total + Number(activeSize.dataset.addPrice);
+        const activeAdditives = modal.querySelectorAll('.additivity-button.checked');
+        activeAdditives.forEach(checked => {
+          total = total + Number(checked.dataset.addPrice);
+        });
+
+        modal.querySelector('.menu-list-item-modal-total-price span:last-child').textContent = `$${total.toFixed(2)}`;
+      });
   };
 
   modal.classList.add('is-open');
