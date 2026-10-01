@@ -764,6 +764,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
+    color: var(--color-text-primary);
 }
 
 .modal-overlay.is-open {
@@ -1051,7 +1052,6 @@ body.no-scroll {
     }
 
 }
-
 
 @media (max-width: 640px) {
     .menu-list-item-modal-image {
