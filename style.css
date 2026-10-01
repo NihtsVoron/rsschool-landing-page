@@ -773,10 +773,10 @@ footer {
 
 .menu-list-item-modal-wrapper
 {
-    width: 800px;
-    height: 504px;
+    max-width: 800px;
     border-radius: 40px;
     background: var(--color-background-page);
+    margin: 16px;
 }
 
 .menu-list-item-modal {
@@ -821,6 +821,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .additivity-button, .sizes-button {
@@ -1047,5 +1048,13 @@ body.no-scroll {
 
      .menu-lists:has(.menu-list.active .menu-list-item:nth-child(5)) + .load-more-button {
         display: block;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+    .menu-list-item-modal-image {
+        display: none;
     }
 }
