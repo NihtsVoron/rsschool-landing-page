@@ -27,6 +27,16 @@ const coffeeMenuButtonCopy = coffeeMenuButton.cloneNode(true);
 
 const loadMoreButton = document.querySelector('.load-more-button');
 
+const modal = document.querySelector('.modal-overlay');
+if (coffeeButton !=null )
+{
+  const closeBtn = modal.querySelector('.menu-list-item-modal-close-button');
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+  });
+}
+
 let allProducts = [];
 
 const savedTheme = localStorage.getItem('theme') || 'light';
@@ -202,6 +212,8 @@ if (coffeeList!=null)
           dessertList.append(newItem);
           break;
       }
+
+      newItem.addEventListener('click', () => openModal(item));
     });
   });
 
@@ -237,6 +249,9 @@ coffeeMenuButtonCopy.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && burgerMenu.classList.contains('active'))
     ToggleBurger();
+
+  if (event.key === 'Escape' && modal.classList.contains('is-open'))
+    closeModal();
 });
 
 window.addEventListener('resize', () => {
@@ -265,4 +280,48 @@ function VisibleLoadMoreButton()
 {
   if (window.innerWidth <= 768 && document.querySelectorAll('.menu-list.active .menu-list-item:nth-child(n+5)').length>0)
     loadMoreButton.style.setProperty('display', 'block');
+}
+
+function openModal(product) {
+  modal.querySelector('.menu-list-item-modal-image').style.backgroundImage = `url(${product.image})`;
+  modal.querySelector('.menu-list-item-modal-description h2').textContent = product.name;
+  modal.querySelector('.menu-list-item-modal-description p').textContent = product.description;
+  modal.querySelector('.menu-list-item-modal-total-price span:last-child').textContent = `$${product.price}`;
+
+  let sizeList=modal.querySelector('.sizes');
+  sizeList.innerHTML = '';
+  Object.entries(product.sizes).forEach(([key, size]) => {
+    let sizeItem = document.createElement('div');
+      sizeItem.className = 'sizes-button link-button-text';
+      sizeItem.innerHTML = `
+          <span class="sizes-size">${key}</span>
+          <span>${size.size}</span>
+        `;
+
+      sizeList.append(sizeItem);
+  });
+
+  sizeList.querySelector('.sizes-button:first-child').classList.add('active');
+
+  let additiyList=modal.querySelector('.additives');
+  additiyList.innerHTML = '';
+  for (let i = 0; i < product.additives.length; i++) {
+    const item = product.additives[i];
+    let sizeItem = document.createElement('div');
+      sizeItem.className = 'sizes-button link-button-text';
+      sizeItem.innerHTML = `
+          <span class="additive-number">${i+1}</span>
+          <span>${item.name}</span>
+        `;
+
+      additiyList.append(sizeItem);
+  };
+
+  modal.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+}
+
+function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
 }
